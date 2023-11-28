@@ -1,0 +1,83 @@
+:root {
+  /* Set the font sizes for the doc*/
+
+  --fs-xl: clamp(4rem, 5vw + 1rem, 6rem);
+  --fs-title: 2rem;
+  --fs-bodyL: 1rem;
+}
+
+/* By putting the sizes into CSS variables, I can change font sizes globally from the top here, rather than hunt around for them. This will also make media queries really easier */
+
+/* We can easily set and control the font sizes through variables and incorporate media query to change them - all in one place */
+
+/* How to get fluid type on large letters*/
+
+@media (max-width: 64rem) {
+  :root {
+    --fs-title: 1.5rem;
+    --fs-bodyL: 1rem;
+  }
+}
+
+* {
+  font-size: var(--fs-bodyL);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 68.75rem;
+  margin: 0 auto;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  border: black 1px solid;
+  margin-top: 3rem;
+}
+
+header {
+  grid-column: 1/-1;
+  background-color: beige;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-size: var(--fs-xl);
+}
+
+h2 {
+  font-size: var(--fs-title);
+}
+
+.maintext {
+  grid-column: 1/2;
+  background-color: azure;
+}
+
+.aside-content {
+  grid-column: 2/3;
+  background-color: bisque;
+  padding-bottom: 3rem;
+}
+
+.bottom-footer {
+  grid-column: 1/-1;
+}
+
+.testviewport {
+  font-size: clamp(3rem, 5vw + 1rem, 6rem);
+
+  /* here is a basic example... this sets the min to 3 rem, the fluid part will be % of vw + 1rem, max 6 rem */
+
+  /* The smallest it can become is 3rem */
+}
